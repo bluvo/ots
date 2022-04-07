@@ -157,7 +157,7 @@
 
       <b-row class="mt-5">
         <b-col class="footer">
-          <a href="https://github.com/Luzifer/ots"><i class="fab fa-github" /> OTS</a> {{ $root.version }}
+          <a href="https://github.com/bluvo/ots"><i class="fab fa-github" /> OTS</a>
         </b-col>
       </b-row>
     </b-container>
