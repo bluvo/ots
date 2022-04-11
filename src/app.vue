@@ -9,7 +9,8 @@
         href="#"
         @click="newSecret"
       >
-        bluvo – One Time Secrets
+        <b-img src="./logo.png" class ="logo" fluid alt="bluvo - "></b-img>
+        One Time Secrets
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
@@ -24,6 +25,9 @@
           </b-nav-item>
           <b-nav-item @click="newSecret">
             <i class="fas fa-plus" /> {{ $t('btn-new-secret') }}
+          </b-nav-item>
+          <b-nav-item @click="generatePassword">
+            <i class="fas fa-key" /> {{ $t('btn-new-password') }}
           </b-nav-item>
           <b-nav-form class="ml-2">
             <b-form-checkbox
@@ -179,6 +183,7 @@ export default {
       secret: '',
       securePassword: '',
       secretId: '',
+      generatedPassword: '',
       showError: false,
       darkTheme: false,
     }
@@ -210,6 +215,16 @@ export default {
   },
 
   methods: {
+    generatePassword() {
+      let CharacterSet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&*$#@.'
+      let lenght = 12
+
+      let password = ''
+      for (let i = 0; i < lenght; i++) {
+        password += CharacterSet.charAt(Math.floor(Math.random() * CharacterSet.length))
+      }
+      this.secret += password
+    },
     // createSecret executes the secret creation after encrypting the secret
     createSecret() {
       this.securePassword = Math.random().toString(36)
@@ -285,3 +300,10 @@ export default {
   },
 }
 </script>
+
+<style>
+.logo{
+  height: 1.5vw !important;
+  padding-right: 0.5vw !important;
+}
+</style>
