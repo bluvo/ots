@@ -9,8 +9,7 @@
         href="#"
         @click="newSecret"
       >
-        <b-img src="./logo.png" class ="logo" fluid alt="bluvo - "></b-img>
-        One Time Secrets
+        <b-img src="./logo.png" class ="logo" fluid alt="bluvo"></b-img> One Time Secrets
       </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse" />
