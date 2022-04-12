@@ -26,7 +26,7 @@
           <b-nav-item @click="newSecret">
             <i class="fas fa-plus" /> {{ $t('btn-new-secret') }}
           </b-nav-item>
-          <b-nav-item @click="generatePassword">
+          <b-nav-item @click="generatePassword" v-if="this.mode === 'create'">
             <i class="fas fa-key" /> {{ $t('btn-new-password') }}
           </b-nav-item>
           <b-nav-form class="ml-2">
@@ -183,7 +183,6 @@ export default {
       secret: '',
       securePassword: '',
       secretId: '',
-      generatedPassword: '',
       showError: false,
       darkTheme: false,
     }
