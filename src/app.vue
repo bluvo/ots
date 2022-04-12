@@ -215,12 +215,12 @@ export default {
 
   methods: {
     generatePassword() {
-      let CharacterSet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&*$#@.'
-      let lenght = 12
+      let characterSet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!&*$#@.'
+      let passwordLength = 12
 
       let password = ''
-      for (let i = 0; i < lenght; i++) {
-        password += CharacterSet.charAt(Math.floor(Math.random() * CharacterSet.length))
+      for (let i = 0; i < passwordLength; i++) {
+        password += characterSet.charAt(Math.floor(Math.random() * characterSet.length))
       }
       this.secret += password
     },
