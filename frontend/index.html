@@ -1,46 +1,61 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {{ range (list "webfonts/fa-solid-900.woff2" "webfonts/fa-brands-400.woff2" "lato-v20-latin-ext_latin-regular.woff2" "lato-v20-latin-ext_latin-700.woff2") }}
+    <link
+      as="font"
+      crossorigin="anonymous"
+      href="{{ . }}"
+      integrity="{{ assetSRI . }}"
+      rel="preload"
+    >
+    {{ end }}
 
-  {{ range (list "webfonts/fa-solid-900.woff2" "webfonts/fa-brands-400.woff2" "lato-v20-latin-ext_latin-regular.woff2"
-  "lato-v20-latin-ext_latin-700.woff2") }}
-  <link as="font" crossorigin="anonymous" href="{{ . }}" integrity="{{ assetSRI . }}" rel="preload">
-  {{ end }}
+    <link
+      rel="icon"
+      href="./favicon.ico"
+    >
 
-  <link rel="icon" href="./favicon.ico">
-  <link crossorigin="anonymous" href="css/all.min.css" integrity="{{ assetSRI `css/all.min.css` }}" rel="stylesheet">
+    <link
+      crossorigin="anonymous"
+      href="css/all.min.css"
+      integrity="{{ assetSRI `css/all.min.css` }}"
+      rel="stylesheet"
+    >
 
-  <title>bluvo – One Time Secrets</title>
+    <title>bluvo – One Time Secrets</title>
 
-  <script>
-    window.getTheme = () => localStorage.getItem('set-color-scheme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+    <script>
+      window.getTheme = () => localStorage.getItem('set-color-scheme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
 
-    window.refreshTheme = () => {
-      document.querySelector('html').setAttribute('mode', window.getTheme())
-    }
+      window.refreshTheme = () => {
+        document.querySelector('html').setAttribute('mode', window.getTheme())
+      }
 
-    window.setTheme = (theme) => {
-      localStorage.setItem('set-color-scheme', theme)
-      window.refreshTheme()
-    }
+      window.setTheme = (theme) => {
+        localStorage.setItem('set-color-scheme', theme)
+        window.refreshTheme()
+      }
 
-    // Very early load of theme definition to avoid flickering
-    document.addEventListener('DOMContentLoaded', () => window.refreshTheme())
+      // Very early load of theme definition to avoid flickering
+      document.addEventListener('DOMContentLoaded', () => window.refreshTheme())
 
-    // Template variable from Golang process
-    const version = "{{ .Version }}"
-  </script>
-</head>
+      // Template variable from Golang process
+      const version = "{{ .Version }}"
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
 
-<body>
-  <div id="app"></div>
-
-  <script crossorigin="anonymous" integrity="{{ assetSRI `app.js` }}" src="app.js"></script>
+    <script
+      crossorigin="anonymous"
+      integrity="{{ assetSRI `app.js` }}"
+      src="app.js"
+    ></script>
 </body>
-
 </html>
