@@ -3,6 +3,7 @@
   "alert-something-went-wrong": "Irgendwas ging schief. Entschuldigung&hellip;",
   "btn-create-secret": "Secret erstellen!",
   "btn-new-secret": "Neues Secret",
+  "btn-new-password": "Passwort generieren",
   "btn-reveal-secret": "Zeig mir das Secret!",
   "btn-show-explanation": "Wie funktioniert das?",
   "items-explanation": [
