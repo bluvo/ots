@@ -171,6 +171,9 @@
 import axios from 'axios'
 import AES from 'gibberish-aes/src/gibberish-aes'
 
+const passwordCharset = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const passwordLength = 20
+
 export default {
   name: 'App',
 
@@ -225,8 +228,9 @@ export default {
     },
     // createSecret executes the secret creation after encrypting the secret
     createSecret() {
-      this.securePassword = Math.random().toString(36)
-        .substring(2)
+      this.securePassword = [...window.crypto.getRandomValues(new Uint8Array(passwordLength))]
+        .map(n => passwordCharset[n % passwordCharset.length])
+        .join('')
       const secret = AES.enc(this.secret, this.securePassword)
 
       axios.post('api/create', { secret })

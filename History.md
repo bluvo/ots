@@ -1,3 +1,19 @@
+# 0.24.1 / 2023-03-07
+
+  * Update dependencies / fix vulnerabilities
+  * CI: Fix release publishing
+
+# 0.24.0 / 2022-11-24
+
+  * Add Traditional Chinese translations (#68)
+  * Fix: Use full browser provided language tag
+
+# 0.23.0 / 2022-11-21
+
+  * Add Simplified Chinese translations (#67)
+  * Replace password generation with web-crypto API
+  * [typo] comprimise -> compromise (#63)
+
 # 0.22.0 / 2022-04-10
 
   * Upgrade golang dependencies
